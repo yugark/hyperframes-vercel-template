@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./page.module.css";
 
 const COMPOSITION_SRC = "/api/preview";
-const COMPOSITION_WIDTH = 1920;
-const COMPOSITION_HEIGHT = 1080;
+const COMPOSITION_WIDTH = 1080;
+const COMPOSITION_HEIGHT = 1920;
 
 type RenderState =
   | { status: "idle" }
@@ -77,7 +77,7 @@ export default function Home() {
   return (
     <main className={styles.page}>
       <header className={styles.header}>
-        <h1>HyperFrames on Vercel</h1>
+        <h1>Yugark Digital Studio — 20s Promo</h1>
         <p>
           HTML-based video compositions — previewed in the browser, rendered
           server-side in a Vercel Sandbox.
@@ -109,7 +109,7 @@ export default function Home() {
         {render.status === "rendering" && (
           <p className={styles.hint}>
             Spinning up a Vercel Sandbox (Chrome + FFmpeg). This usually takes
-            about 2 minutes for the bundled ~11-second composition.
+            several minutes for the 20-second composition.
           </p>
         )}
         {render.status === "done" && (
