@@ -12,13 +12,13 @@ export async function POST() {
     const { mp4 } = await renderInSandbox(files);
 
     const blob = await put("renders/render.mp4", mp4, {
-      access: "public",
+      access: "private",
       contentType: "video/mp4",
       addRandomSuffix: true,
       allowOverwrite: true,
     });
 
-    return NextResponse.json({ url: blob.url });
+    return NextResponse.json({ url: `/api/video?pathname=${encodeURIComponent(blob.pathname)}` });
   } catch (err) {
     console.error("[/api/render] failed", err);
     return NextResponse.json(
