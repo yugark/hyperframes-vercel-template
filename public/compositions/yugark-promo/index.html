@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=1080,height=1920"><title>Yugark Digital Studio • 20s Promo</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#f8f5ef;color:#141414;font-family:Arial,Helvetica,sans-serif}
+#promo{position:relative;width:1080px;height:1920px;overflow:hidden;background:#f8f5ef}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#17171709 1px,transparent 1px),linear-gradient(90deg,#17171709 1px,transparent 1px);background-size:90px 90px}
+.orb{position:absolute;width:780px;height:780px;border-radius:50%;filter:blur(75px);background:#ff6e4938;top:170px;right:-410px}
+.brand{position:absolute;top:100px;left:86px;font-weight:900;letter-spacing:4px;font-size:34px}.brand span{color:#f06445}
+.scene{position:absolute;inset:0;padding:300px 85px 220px;opacity:0;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{color:#ef6948;font-size:36px;font-weight:800;letter-spacing:6px;margin-bottom:40px}
+h1{font-size:112px;line-height:1.02;letter-spacing:-5px;margin:0;font-weight:900}
+h1 em{font-style:normal;color:#ef6948}.desc{font-size:43px;line-height:1.35;margin-top:55px;color:#505050}
+.chip{display:inline-flex;border-radius:100px;background:#161616;color:white;padding:22px 38px;font-size:30px;font-weight:700;width:max-content;margin-top:60px}
+.panel{background:#fff;border:3px solid #161616;border-radius:36px;padding:44px;margin-top:65px;box-shadow:22px 24px 0 #f16d4a;font-size:43px;font-weight:800}
+.metric{font-size:150px;color:#ef6948;font-weight:900}.bottom{position:absolute;bottom:120px;left:86px;right:86px;display:flex;justify-content:space-between;font-size:27px;letter-spacing:2px;font-weight:800}
+.line{position:absolute;left:86px;right:86px;bottom:195px;height:8px;background:#19191912;border-radius:5px}.progress{height:100%;background:#f06445;width:0}
+</style></head><body>
+<div id="promo" data-composition-id="yugark-promo" data-width="1080" data-height="1920" data-start="0" data-duration="20" data-root="true">
+<div class="grid"></div><div class="orb"></div><div class="brand">YUGARK <span>DIGITAL STUDIO</span></div>
+<section class="scene" id="s1"><div class="eyebrow">YOUR BRAND. REIMAGINED.</div><h1>DON'T JUST<br>SHOW UP.<br><em>STAND OUT.</em></h1><div class="desc">Turn attention into real business growth.</div><div class="chip">WE BUILD • WE CREATE • WE GROW</div></section>
+<section class="scene" id="s2"><div class="eyebrow">01 / DIGITAL GROWTH</div><h1>MORE<br><em>REACH.</em><br>MORE IMPACT.</h1><div class="panel">META ADS ↗ &nbsp; GOOGLE ADS ↗</div><div class="desc">Performance-focused campaigns.</div></section>
+<section class="scene" id="s3"><div class="eyebrow">02 / AI-POWERED</div><h1>SMARTER<br><em>CONTENT.</em><br>FASTER.</h1><div class="panel">AI VIDEOS ✦ &nbsp; AI VOICE AGENTS</div><div class="desc">Modern tools. Creative execution.</div></section>
+<section class="scene" id="s4"><div class="eyebrow">03 / DIGITAL EXPERIENCES</div><h1>BUILT TO<br><em>IMPRESS.</em></h1><div class="panel">WEBSITES ◈ SOCIAL MEDIA ◈ VIDEO</div><div class="desc">Every touchpoint tells your story.</div></section>
+<section class="scene" id="s5"><div class="eyebrow">LET'S BUILD WHAT'S NEXT</div><h1>WE BUILD.<br>WE CREATE.<br><em>WE GROW<br>BRANDS.</em></h1><div class="chip">YUGARK.IN →</div></section>
+<div class="line"><div class="progress"></div></div><div class="bottom"><span>YUGARK DIGITAL STUDIO</span><span>YUGARK.IN</span></div>
+</div>
+<script>
+window.__timelines=window.__timelines||{};
+(function(){
+ const tl=gsap.timeline({paused:true});
+ const scenes=['#s1','#s2','#s3','#s4','#s5'];
+ scenes.forEach((id,i)=>{const start=i*4;tl.fromTo(id,{opacity:0,y:95},{opacity:1,y:0,duration:.65,ease:'power3.out'},start+.1);tl.to(id,{opacity:0,y:-65,duration:.55,ease:'power2.in'},start+3.4);});
+ tl.to('.progress',{width:'100%',duration:20,ease:'none'},0);
+ tl.to('.orb',{x:-420,y:500,duration:20,ease:'none'},0);
+ tl.to({}, {duration:.1},19.9);
+ window.__timelines['yugark-promo']=tl;
+})();
+</script></body></html>
