@@ -77,7 +77,7 @@ export async function writeSnapshotPointer(params: {
     pointerKey(params.deploymentId),
     JSON.stringify({ snapshotId: params.snapshotId }),
     {
-      access: "public",
+      access: "private",
       contentType: "application/json",
       addRandomSuffix: false,
       allowOverwrite: true,
@@ -87,7 +87,7 @@ export async function writeSnapshotPointer(params: {
 }
 
 async function readSnapshotId(deploymentId: string, token: string): Promise<string> {
-  const result = await get(pointerKey(deploymentId), { access: "public", token });
+  const result = await get(pointerKey(deploymentId), { access: "private", token });
   if (!result || result.statusCode !== 200) {
     throw new Error(`snapshot pointer missing for deployment ${deploymentId}`);
   }
@@ -109,10 +109,7 @@ async function restoreOrCreate(): Promise<Sandbox> {
       });
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
-      if (process.env.VERCEL_ENV === "production") {
-        throw new Error(`snapshot restore failed in production: ${msg}`);
-      }
-      console.warn(`[sandbox] snapshot restore failed in dev, falling back: ${msg}`);
+      console.warn(`[sandbox] snapshot restore unavailable, falling back to fresh sandbox: ${msg}`);
     }
   }
 
