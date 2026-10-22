@@ -9,7 +9,7 @@ export const PREVIEW_COMPOSITION_DIR = join(
   process.cwd(),
   "public",
   "compositions",
-  "vercel-intro",
+  "yugark-promo",
 );
 
 const execFileAsync = promisify(execFile);
